@@ -1,0 +1,51 @@
+body {
+  background-color: #fff;
+}
+
+.navigation {
+  position: fixed;
+  height: 50px;
+  width: 100%;
+  text-align: center;
+  padding: 20px 0 0;
+  z-index: 10000;
+
+  .navigation-list > li {
+    display: inline;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 0px 5px;
+
+    & > a {
+      color: #222;
+      text-decoration: none;
+    }
+
+    &.active {
+      border-bottom: 5px solid #222;
+      padding-bottom: 5px;
+    }
+  }
+}
+
+.presentation {
+  img {
+    max-width: 100%;
+    /*img height must be the same as width*/
+    height: auto;
+  }
+
+  .about {
+    margin: 20px 0;
+    text-align: center;
+  }
+}
+
+/*Prefix to differenciate custom utilities from 3rd party rules*/
+.rs-center {
+  text-align: center;
+}
+
+.rs-img-circle {
+  border-radius: 50%;
+}
