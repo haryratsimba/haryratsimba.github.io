@@ -7,7 +7,7 @@ const browserSync = require('browser-sync').create();
 
 const dist = './dist/';
 
-// Merge SCSS / CSS, min, and inject into the browser
+// Merge SCSS / CSS, min, and inject into the sync browser
 gulp.task('stylesheets', () => {
   const cssStream = gulp.src('./stylesheets/lib/**/*.css');
   const sassStream = gulp.src('./stylesheets/**/*.scss').pipe(sass());
@@ -29,13 +29,14 @@ gulp.task('scripts', () => {
 // Bundle JS + CSS as one file
 gulp.task('build', ['stylesheets', 'scripts']);
 
-// Server files on localhost with browserSync
+// Serve files on localhost with browserSync
 gulp.task('serve', ['build'], () => {
   browserSync.init({
     server: {
       baseDir: './'
     }
   });
+  
   gulp.watch('./stylesheets/style.scss', ['stylesheets']);
   gulp.watch('index.html').on('change', browserSync.reload);
 });
