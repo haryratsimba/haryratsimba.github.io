@@ -1,5 +1,6 @@
 $color-black: #222;
 $color-lightgrey: #d8d8d8;
+$color-pink: #DB0A5B;
 
 body {
   background-color: #fff;
@@ -37,7 +38,7 @@ body {
 .presentation {
   img {
     max-width: 100%;
-    /*img height must be the same as width*/
+    // img height must be the same as width
     height: auto;
   }
 
@@ -47,7 +48,9 @@ body {
   }
 
   #salutations {
-    font-family: 'Bungee Outline', cursive;
+    font-family: 'Archivo Black', sans-serif;
+    color: $color-pink;
+    text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);
   }
 }
 
@@ -55,9 +58,53 @@ body {
   width: 90%;
   height: 83%;
   margin: 0 auto;
+
+  // Hide the swipe message
+  .tl-message-full {
+    display: none;
+  }
 }
 
-/*Prefix to differenciate custom utilities from 3rd party rules*/
+.skills {
+  width: 100%;
+
+  li.skill {
+    overflow: hidden;
+    list-style: none;
+    position: relative;
+    width: 100%;
+    padding: 7px 0px;
+    min-height: 20px;
+    background-color: $color-lightgrey;
+
+    &:before, &:after {
+      padding-left: 8px;
+      line-height: 30px;
+      position: absolute;
+      top: 0px;
+      height: 100%;
+    }
+
+    // after: Skill name text
+    &:after {
+      content: attr(data-name);
+    }
+
+    // before: bg color + percentage text
+    @for $i from 1 through 10 {
+      $p: ($i*10);
+
+      &.level-#{$p}:before {
+        content: $p + '%';
+        background: $color-pink;
+        width: $p * 1%;
+        text-indent: 95%;
+      }
+    }
+  }
+}
+
+// Prefix to differenciate custom utilities from 3rd party rules
 
 .rs-center {
   text-align: center;
