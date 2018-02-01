@@ -1,6 +1,7 @@
+// The CSS is to small to break it using the SASS way
 $color-black: #222;
 $color-lightgrey: #d8d8d8;
-$color-pink: #DB0A5B;
+$color-theme: #DB0A5B;
 
 body {
   background-color: #fff;
@@ -36,21 +37,30 @@ body {
 }
 
 .presentation {
-  img {
+  img.picture {
     max-width: 100%;
     // img height must be the same as width
     height: auto;
+    @media (max-width: 550px) {
+      display: none;
+    }
   }
 
   .about {
     margin: 20px 0;
     text-align: center;
+
+    img.social-network {
+      width: 70px;
+      height: 70px;
+      margin: 0 5px;
+    }
   }
 
   #salutations {
     font-family: 'Archivo Black', sans-serif;
-    color: $color-pink;
-    text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);
+    color: $color-black;
+    text-shadow: 9px 8px 0 rgba(0,0,0,0.15);
   }
 }
 
@@ -58,7 +68,6 @@ body {
   width: 90%;
   height: 83%;
   margin: 0 auto;
-
   // Hide the swipe message
   .tl-message-full {
     display: none;
@@ -73,39 +82,36 @@ body {
     list-style: none;
     position: relative;
     width: 100%;
-    padding: 7px 0px;
+    padding: 7px 0;
     min-height: 20px;
     background-color: $color-lightgrey;
 
-    &:before, &:after {
+    &:after,
+    &:before {
       padding-left: 8px;
       line-height: 30px;
       position: absolute;
-      top: 0px;
+      top: 0;
       height: 100%;
     }
-
     // after: Skill name text
     &:after {
       content: attr(data-name);
     }
-
     // before: bg color + percentage text
     @for $i from 1 through 10 {
       $p: ($i*10);
 
       &.level-#{$p}:before {
         content: $p + '%';
-        background: $color-pink;
+        background: $color-theme;
         width: $p * 1%;
         text-indent: 95%;
       }
     }
   }
 }
-
 // Prefix to differenciate custom utilities from 3rd party rules
-
 .rs-center {
   text-align: center;
 }

@@ -2,7 +2,7 @@ $(document).ready(function() {
 
   // Fullpage
   $('#fullpage').fullpage({
-    anchors: ['home', 'experience', 'skills', 'contact'],
+    anchors: ['home', 'experience', 'skills', 'side-projects'],
     onLeave: function(index, nextIndex) {
       var $nav = $('.navigation-list li');
 
