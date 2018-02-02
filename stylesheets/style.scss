@@ -1,13 +1,24 @@
-// The CSS is to small to break it using the SASS way
+// The CSS is too small to break it using the SASS way
 $color-black: #222;
+$color-white: #000;
 $color-lightgrey: #d8d8d8;
 $color-theme: #DB0A5B;
+
+html {
+  overflow: scroll;
+  overflow-x: hidden;
+}
 
 body {
   background-color: #fff;
   font-family: 'Poppins', sans-serif;
   letter-spacing: 0.5px;
   color: $color-black;
+  // Hide the body scrollbar as fullpage is setup with autoscrolling
+  &::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+  }
 }
 
 .navigation {
@@ -111,7 +122,55 @@ body {
     }
   }
 }
+
+#side-projets {
+  max-height: 80%;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    background-color: $color-lightgrey;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $color-white;
+  }
+
+  .projects {
+    -webkit-column-count: 3;
+    column-count: 3;
+    @media only screen and (max-width: 768px) {
+      -webkit-column-count: 2;
+      column-count: 2;
+    }
+    @media only screen and (max-width: 420px) {
+      -webkit-column-count: 1;
+      column-count: 1;
+    }
+
+    .project {
+      // Avoid project item being break on multiple columns
+      -webkit-column-break-inside: avoid;
+      page-break-inside: avoid;
+      break-inside: avoid-column;
+      display: table;
+      -webkit-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+      box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+      margin-bottom: 8px;
+
+      .content {
+        padding: 8px;
+      }
+
+      img.banner-img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
 // Prefix to differenciate custom utilities from 3rd party rules
+
 .rs-center {
   text-align: center;
 }

@@ -3,6 +3,7 @@ const sass = require('gulp-sass');
 const concat = require('gulp-concat');
 const merge = require('gulp-merge');
 const minify = require('gulp-minify-css');
+const babel = require('gulp-babel');
 const browserSync = require('browser-sync').create();
 
 const dist = './dist/';
@@ -23,6 +24,9 @@ gulp.task('stylesheets', () => {
 gulp.task('scripts', () => {
   return gulp.src('./scripts/**/*.js')
     .pipe(concat('build.js'))
+    .pipe(babel({
+      presets: ['env']
+    }))
     .pipe(gulp.dest(dist));
 });
 
@@ -36,7 +40,7 @@ gulp.task('serve', ['build'], () => {
       baseDir: './'
     }
   });
-  
+
   gulp.watch('./stylesheets/style.scss', ['stylesheets']);
   gulp.watch('index.html').on('change', browserSync.reload);
 });
