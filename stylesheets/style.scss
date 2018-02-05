@@ -19,6 +19,19 @@ body {
     width: 0;
     background: transparent;
   }
+
+  &.loading {
+    margin-top: 100%;
+
+    &:before {
+      content: 'Chargement en cours...';
+      display: block;
+      position: absolute;
+      top: 50%;
+      transform: translateX(-50%);
+      left: 50%;
+    }
+  }
 }
 
 a > div * {

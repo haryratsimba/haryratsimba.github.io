@@ -62,4 +62,6 @@ $(document).ready(() => {
       }
     }
   });
+
+  $('body').removeClass('loading');
 });
