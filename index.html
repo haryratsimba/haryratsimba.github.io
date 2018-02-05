@@ -28,21 +28,16 @@
   <div id="fullpage">
     <section class="section">
       <div class="container presentation">
-        <header class="row">
-          <div class="three columns rs-center">
-            <img src="https://placeholdit.co//i/250x250?bg=111111" width="160" height="160" class="rs-img-circle picture">
-          </div>
-          <div class="nine columns">
-            <h1 id="salutations">John D, dev & curieux du Web</h1>
-          </div>
+        <header class="rs-center">
+          <img src="./imgs/profile.png" width="160" height="160" class="rs-img-circle picture">
         </header>
         <div class="about">
           <p>
-            Hello, <span class="rs-hightlighted">d&eacute;veloppeur Web</span> passionn&eacute; par les technologies autour du browser, je con&ccedil;ois des applications pour le Web, mobile, et autres supports. Sur mon temps libre, je bidouille quelques
+            Hello, je suis Hary. <span class="rs-hightlighted">D&eacute;veloppeur Web</span> passionn&eacute; par les technologies autour du browser, je con&ccedil;ois des applications pour le Web, mobile, et autres supports. Sur mon temps libre, je bidouille quelques
             <a href="#side-projects">projets</a>, principalement autour de l'&eacute;cosyst&egrave;me <span class="rs-hightlighted">JavaScript</span>. Je joue &eacute;galement de la guitare, et suis un grand adepte de Jazz et de Gospel.
           </p>
           <p>
-            N'hésitez pas à me contacter via les reseaux sociaux.
+            N'hésitez pas à me contacter via les reseaux sociaux !
           </p>
           <p>
             <a href="https://www.linkedin.com/in/haryratsimba/"><img class="social-network" src="./imgs/linkedin.svg" alt="linkedin"></a>
@@ -73,27 +68,37 @@
       </div>
     </section>
     <section class="section">
-      <div id="side-projets" class="container">
-        <div class="projects">
-          <div v-for="project of projects" class="project">
-            <img :src="project.media" :alt="project.name" class="banner-img">
-            <div class="content">
-              <h6><a :href="project.link">{{project.name}}</a></h6>
-              <div class="description">{{project.description}}</div>
-            </div>
+      <div class="container" id="projects">
+        <div class="row">
+          <div class="three columns project-list">
+            <ul>
+              <li v-for="(project, index) in projects" class="project-item">
+                <button href="" @click.prevent="expandProject(index)" :class="isProjectSelected(index) ? ['button', 'button-primary'] : ''">{{project.name}}</button>
+              </li>
+            </ul>
+          </div>
+          <div class="nine columns project">
+            <a :href="selectedProject.link">
+              <div>
+                <img :src="selectedProject.media" :alt="selectedProject.name" class="banner-img">
+                <div class="content">
+                  <h5>{{selectedProject.name}}</h5>
+                  <p class="description">{{selectedProject.description}}</p>
+                </div>
+              </div>
+            </a>
           </div>
         </div>
-      </div>
     </section>
-  </div>
+    </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.5/jquery.fullpage.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/FitText.js/1.2.0/jquery.fittext.min.js"></script>
-  <script src="https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/tabletop@1.5.2/src/tabletop.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
-  <script src="./dist/build.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.5/jquery.fullpage.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FitText.js/1.2.0/jquery.fittext.min.js"></script>
+    <script src="https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tabletop@1.5.2/src/tabletop.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+    <script src="./dist/build.js"></script>
 </body>
 
 </html>

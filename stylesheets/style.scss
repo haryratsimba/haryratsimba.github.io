@@ -1,8 +1,8 @@
 // The CSS is too small to break it using the SASS way
 $color-black: #222;
-$color-white: #000;
+$color-white: #fff;
 $color-lightgrey: #d8d8d8;
-$color-theme: #DB0A5B;
+$color-theme: #33C3F0;
 
 html {
   overflow: scroll;
@@ -19,6 +19,10 @@ body {
     width: 0;
     background: transparent;
   }
+}
+
+a > div * {
+  color: $color-black;
 }
 
 .navigation {
@@ -52,9 +56,12 @@ body {
     max-width: 100%;
     // img height must be the same as width
     height: auto;
-    @media (max-width: 550px) {
-      display: none;
-    }
+
+    -webkit-filter: blur(3px);
+    -moz-filter: blur(3px);
+    -o-filter: blur(3px);
+    -ms-filter: blur(3px);
+    filter: blur(3px);
   }
 
   .about {
@@ -123,49 +130,64 @@ body {
   }
 }
 
-#side-projets {
-  max-height: 80%;
-  overflow-y: auto;
-
-  &::-webkit-scrollbar {
-    width: 6px;
-    background-color: $color-lightgrey;
+#projects {
+  @media only screen and (max-width: 768px) {
+    text-align: center !important;
   }
 
-  &::-webkit-scrollbar-thumb {
-    background-color: $color-white;
-  }
-
-  .projects {
-    -webkit-column-count: 3;
-    column-count: 3;
+  .project-list {
     @media only screen and (max-width: 768px) {
-      -webkit-column-count: 2;
-      column-count: 2;
-    }
-    @media only screen and (max-width: 420px) {
-      -webkit-column-count: 1;
-      column-count: 1;
-    }
+      width: 100%;
 
-    .project {
-      // Avoid project item being break on multiple columns
-      -webkit-column-break-inside: avoid;
-      page-break-inside: avoid;
-      break-inside: avoid-column;
-      display: table;
-      -webkit-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-      box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-      margin-bottom: 8px;
-
-      .content {
-        padding: 8px;
+      & li {
+        display: inline;
+        margin: 0 5px;
       }
+    }
 
-      img.banner-img {
-        width: 100%;
-        height: auto;
+    ul {
+      padding: 13px;
+      list-style: none;
+    }
+
+    button {
+      white-space: normal;
+      height: auto;
+      line-height: 30px;
+      text-align: left;
+    }
+  }
+
+  .project {
+    // Avoid project item being break on multiple columns
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid-column;
+    display: table;
+    -webkit-box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    height: 100%;
+    position: relative;
+    margin-bottom: 8px;
+    @media only screen and (max-width: 768px) {
+      width: 100%;
+    }
+
+    .content {
+      border-top: 1px solid $color-lightgrey;
+      padding: 13px;
+      position: absolute;
+      bottom: 0;
+      background-color: $color-white;
+      @media only screen and (max-width: 420px) {
+        height: 100%;
       }
+    }
+
+    img.banner-img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
     }
   }
 }
