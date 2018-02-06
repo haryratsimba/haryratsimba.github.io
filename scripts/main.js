@@ -1,5 +1,6 @@
 $(document).ready(() => {
 
+  // Fullpage
   const anchors = {
     HOME: 'home',
     EXPERIENCE: 'experience',
@@ -7,7 +8,6 @@ $(document).ready(() => {
     SIDEPROJECTS: 'side-projects'
   };
 
-  // Fullpage
   $('#fullpage').fullpage({
     anchors: Object.values(anchors),
     onLeave(index, nextIndex, direction) {
@@ -21,7 +21,7 @@ $(document).ready(() => {
   // Presentation text
   $('h1#salutations').fitText();
 
-  const spreadsheetURL = 'https://docs.google.com/spreadsheets/d/1SlsDx4UUZ-eJYqrzh-gj7heafo8N--LuEbCV7uD57Ic/pubhtml';
+  const spreadsheetURL = 'https://docs.google.com/spreadsheets/d/1PzlSrtWpkWfE7Mn-weoVVSCxT30OrjS8hulbKBle9Qw/pubhtml';
 
   // Timeline
   const timeline = new TL.Timeline('timeline-embeded', spreadsheetURL, {
@@ -34,7 +34,6 @@ $(document).ready(() => {
   });
 
   // Side-projects
-
   const vm = new Vue({
     el: '#projects',
     data: {

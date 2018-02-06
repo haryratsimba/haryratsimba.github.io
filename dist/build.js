@@ -23,7 +23,7 @@ $(document).ready(function () {
   // Presentation text
   $('h1#salutations').fitText();
 
-  var spreadsheetURL = 'https://docs.google.com/spreadsheets/d/1SlsDx4UUZ-eJYqrzh-gj7heafo8N--LuEbCV7uD57Ic/pubhtml';
+  var spreadsheetURL = 'https://docs.google.com/spreadsheets/d/1PzlSrtWpkWfE7Mn-weoVVSCxT30OrjS8hulbKBle9Qw/pubhtml';
 
   // Timeline
   var timeline = new TL.Timeline('timeline-embeded', spreadsheetURL, {
