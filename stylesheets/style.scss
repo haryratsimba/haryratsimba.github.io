@@ -1,4 +1,7 @@
 // The CSS is too small to break it using the SASS way
+@import 'vendors/skeleton/normalize';
+@import 'vendors/skeleton/skeleton';
+
 $color-black: #222;
 $color-white: #fff;
 $color-lightgrey: #d8d8d8;

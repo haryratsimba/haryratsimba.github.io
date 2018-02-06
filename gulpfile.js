@@ -1,19 +1,16 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const concat = require('gulp-concat');
-const merge = require('gulp-merge');
 const minify = require('gulp-minify-css');
 const babel = require('gulp-babel');
 const browserSync = require('browser-sync').create();
 
 const dist = './dist/';
 
-// Merge SCSS / CSS, min, and inject into the sync browser
+// Compile SCSS / CSS, min, and inject into the sync browser
 gulp.task('stylesheets', () => {
-  const cssStream = gulp.src('./stylesheets/lib/**/*.css');
-  const sassStream = gulp.src('./stylesheets/**/*.scss').pipe(sass());
-
-  return merge(cssStream, sassStream)
+  return gulp.src('./stylesheets/**/*.scss')
+    .pipe(sass())
     .pipe(concat('style.css'))
     .pipe(minify())
     .pipe(gulp.dest(dist))

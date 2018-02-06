@@ -2,6 +2,7 @@
 
 $(document).ready(function () {
 
+  // Fullpage
   var anchors = {
     HOME: 'home',
     EXPERIENCE: 'experience',
@@ -9,7 +10,6 @@ $(document).ready(function () {
     SIDEPROJECTS: 'side-projects'
   };
 
-  // Fullpage
   $('#fullpage').fullpage({
     anchors: Object.values(anchors),
     onLeave: function onLeave(index, nextIndex, direction) {
@@ -36,7 +36,6 @@ $(document).ready(function () {
   });
 
   // Side-projects
-
   var vm = new Vue({
     el: '#projects',
     data: {
