@@ -70,10 +70,9 @@ $(document).ready(function () {
     computed: {
       tagsList: function tagsList() {
         return this.projects.reduce(function (acc, project) {
-          // Accumulated tags
           var tags = project.tags.split(',');
 
-          // Remove dupplicate tags
+          // Remove dupplicated tags
           return acc.concat(tags.filter(function (el) {
             return acc.indexOf(el) < 0;
           }));
@@ -81,8 +80,6 @@ $(document).ready(function () {
       }
     }
   });
-
-  console.log(vm);
 
   $('body').removeClass('loading');
 });
