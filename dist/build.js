@@ -66,8 +66,23 @@ $(document).ready(function () {
       isProjectSelected: function isProjectSelected(index) {
         return index === this.selectedProjectIndex;
       }
+    },
+    computed: {
+      tagsList: function tagsList() {
+        return this.projects.reduce(function (acc, project) {
+          // Accumulated tags
+          var tags = project.tags.split(',');
+
+          // Remove dupplicate tags
+          return acc.concat(tags.filter(function (el) {
+            return acc.indexOf(el) < 0;
+          }));
+        }, []);
+      }
     }
   });
+
+  console.log(vm);
 
   $('body').removeClass('loading');
 });

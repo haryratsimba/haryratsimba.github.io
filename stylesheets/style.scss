@@ -1,7 +1,6 @@
 // The CSS is too small to break it using the SASS way
 @import 'vendors/skeleton/normalize';
 @import 'vendors/skeleton/skeleton';
-
 $color-black: #222;
 $color-white: #fff;
 $color-lightgrey: #d8d8d8;
@@ -31,8 +30,8 @@ body {
       display: block;
       position: absolute;
       top: 50%;
-      transform: translateX(-50%);
       left: 50%;
+      transform: translateX(-50%);
     }
   }
 }
@@ -72,7 +71,6 @@ a > div * {
     max-width: 100%;
     // img height must be the same as width
     height: auto;
-
     -webkit-filter: blur(3px);
     -moz-filter: blur(3px);
     -o-filter: blur(3px);
@@ -140,7 +138,7 @@ a > div * {
         content: $p + '%';
         background: $color-theme;
         width: $p * 1%;
-        text-indent: 95%;
+        text-indent: calc(95% - 28px);
       }
     }
   }
@@ -174,12 +172,25 @@ a > div * {
     }
   }
 
+  .tags-list {
+    text-align: center;
+    margin-bottom: 18px;
+
+    @media only screen and (max-width: 550px) {
+      display: none;
+    }
+
+    button.tag {
+      padding: 0 8px;
+      font-size: 9px;
+      font-weight: normal;
+      height: 19px;
+      line-height: 18px;
+      margin: 0px 5px;
+    }
+  }
+
   .project {
-    // Avoid project item being break on multiple columns
-    -webkit-column-break-inside: avoid;
-    page-break-inside: avoid;
-    break-inside: avoid-column;
-    display: table;
     -webkit-box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
     box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
     height: 100%;
@@ -198,6 +209,11 @@ a > div * {
       @media only screen and (max-width: 420px) {
         height: 100%;
       }
+      .description-tag-list {
+        font-style: italic;
+        font-size: 10px;
+        text-transform: uppercase;
+      }
     }
 
     img.banner-img {
@@ -208,7 +224,6 @@ a > div * {
   }
 }
 // Prefix to differenciate custom utilities from 3rd party rules
-
 .rs-center {
   text-align: center;
 }

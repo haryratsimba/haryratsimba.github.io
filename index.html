@@ -69,6 +69,9 @@
     </section>
     <section class="section">
       <div class="container" id="projects">
+        <div class="tags-list">
+          <button class="tag" v-for="tag in tagsList">{{tag}}</button>
+        </div>
         <div class="row">
           <div class="three columns project-list">
             <ul>
@@ -84,6 +87,7 @@
                 <div class="content">
                   <h5>{{selectedProject.name}}</h5>
                   <p class="description">{{selectedProject.description}}</p>
+                  <p class="description-tag-list">Tags : {{selectedProject.tags}}</span></p>
                 </div>
               </div>
             </a>

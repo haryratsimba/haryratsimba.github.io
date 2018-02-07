@@ -59,6 +59,16 @@ $(document).ready(() => {
       isProjectSelected(index) {
         return index === this.selectedProjectIndex;
       }
+    },
+    computed: {
+      tagsList() {
+        return this.projects.reduce((acc, project)=> {
+          let tags = project.tags.split(',');
+
+          // Remove dupplicated tags
+          return acc.concat(tags.filter(el=> acc.indexOf(el) < 0));
+        }, []);
+      }
     }
   });
 
