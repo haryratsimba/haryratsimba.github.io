@@ -20,9 +20,6 @@ $(document).ready(function () {
     }
   });
 
-  // Presentation text
-  $('h1#salutations').fitText();
-
   var spreadsheetURL = 'https://docs.google.com/spreadsheets/d/1PzlSrtWpkWfE7Mn-weoVVSCxT30OrjS8hulbKBle9Qw/pubhtml';
 
   // Timeline
