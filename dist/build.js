@@ -6,7 +6,7 @@ $(document).ready(function () {
   var anchors = {
     HOME: 'home',
     EXPERIENCE: 'experience',
-    SKILLS: 'skills',
+    TECHNOS: 'technos',
     SIDEPROJECTS: 'side-projects'
   };
 

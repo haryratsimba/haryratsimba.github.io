@@ -90,6 +90,37 @@ a > div * {
   }
 }
 
+// Scroll arrow indicator
+body:not(.loading) #home-section:after {
+  content: '';
+  width: 80px;
+  height: 60px;
+  position: absolute;
+  text-align: center;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: url("../imgs/arrow-down.svg") no-repeat;
+  background-size: 100%;
+
+  animation: 1s bounce infinite 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translate(-50%, 0);
+  }
+
+  50% {
+    transform: translate(-50%, -40%);
+  }
+
+  100% {
+    transform: translate(-50%, 0);
+  }
+}
+
 #timeline-embeded {
   width: 90%;
   height: 83%;
@@ -169,7 +200,6 @@ a > div * {
   .tags-list {
     text-align: center;
     margin-bottom: 18px;
-
     @media only screen and (max-width: 550px) {
       display: none;
     }
@@ -180,7 +210,7 @@ a > div * {
       font-weight: normal;
       height: 19px;
       line-height: 18px;
-      margin: 0px 5px;
+      margin: 0 5px;
     }
   }
 
@@ -203,6 +233,7 @@ a > div * {
       @media only screen and (max-width: 420px) {
         height: 100%;
       }
+
       .description-tag-list {
         font-style: italic;
         font-size: 10px;
@@ -218,6 +249,7 @@ a > div * {
   }
 }
 // Prefix to differenciate custom utilities from 3rd party rules
+
 .rs-center {
   text-align: center;
 }
